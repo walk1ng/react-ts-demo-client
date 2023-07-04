@@ -56,7 +56,7 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}  # 需要有访问权限的 token
           repository: walk1ng/react-ts-demo-client-kustomize
           event-type: trigger-b
-          inputs: |
+          client-payload: |
             image: ${{ secrets.DOCKER_USERNAME }}/react-ts-demo-client
             sha-tag: ${{ github.sha }}
 
