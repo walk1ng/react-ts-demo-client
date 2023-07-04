@@ -43,3 +43,16 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/react-ts-demo-client:${{ github.sha }}
+          
+      - name: Trigger CI
+        uses: InformaticsMatters/trigger-ci-action@1.0.1
+        with:
+          ci-owner: walk1ng
+          ci-repository: react-ts-demo-client-kustomize
+          ci-ref: refs/heads/master
+          ci-user: walk1ng
+          ci-user-token: ${{ secrets.CI_TOKEN }}
+          ci-name: CI
+          ci-inputs: >-
+            image=${{ secrets.DOCKER_USERNAME }}/react-ts-demo-client
+            sha-tag=${{ github.sha }}
