@@ -17,7 +17,7 @@ RUN npm run build
 ENV NODE_ENV=production
 
 # 暴露运行端口
-EXPOSE 3000
+EXPOSE 7070
 
 # 运行应用程序
 CMD [ "npm", "start" ]
