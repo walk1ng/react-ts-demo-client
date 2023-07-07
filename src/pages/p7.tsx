@@ -11,7 +11,7 @@ export default function P7() {
 
     useEffect(() => {
         async function updateStudents() {
-            const resp = await axios.get<R<Student[]>>(`http://192.168.80.163:8080/api/students`)
+            const resp = await axios.get<R<Student[]>>(`${process.env.API_URL}/api/students`)
             console.log(resp.data.data)
             setStudents(resp.data.data)
         }

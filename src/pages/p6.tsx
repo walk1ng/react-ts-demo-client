@@ -25,7 +25,7 @@ export default function P6({ id, age }: { id: number, age: number }) {
         console.log("副作用功能")
 
         async function updateStudent() {
-            const resp = await axios.get<R<Student>>(`http://192.168.80.163:8080/api/students/${id}`)
+            const resp = await axios.get<R<Student>>(`${process.env.API_URL}/api/students/${id}`)
             console.log(resp.data.data)
             setStudent(resp.data.data)
         }

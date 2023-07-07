@@ -9,7 +9,7 @@ export default function A6DeleteSelected({ ids, onSuccess }: { ids: React.Key[],
   }
   async function onConfirm() {
     const resp = await axios.delete<R<string>>(
-      `http://192.168.80.163:8080/api/students`,
+      `${process.env.API_URL}/api/students`,
       {
         data: {
           ids: ids,

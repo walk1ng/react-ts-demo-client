@@ -28,7 +28,7 @@ export default function A6Insert({
       const values = await form.validateFields();
       console.log(values);
       const resp = await axios.post<R<Student>>(
-        `http://192.168.80.163:8080/api/studentsx`,
+        `${process.env.API_URL}/api/studentsx`,
         values
       );
       message.success(resp.data.message);

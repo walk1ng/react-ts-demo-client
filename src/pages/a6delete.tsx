@@ -5,7 +5,7 @@ import { R } from "../models/r";
 export default function A6Delete({ id, onSuccess }: { id: number , onSuccess: ()=>void}) {
 
     async function onConfirm() {
-        const resp = await axios.delete<R<string>>(`http://192.168.80.163:8080/api/student/${id}`)
+        const resp = await axios.delete<R<string>>(`${process.env.API_URL}/api/student/${id}`)
         console.log(resp.data.data)
         message.success(resp.data.data)
 

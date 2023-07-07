@@ -32,12 +32,12 @@ class RoutesStore {
   async login(loginReq: LoginReq) {
     console.log('logining....')
     this.state = 'pending'
-    const resp1 = await axios.post<R<LoginResp>>('http://192.168.80.163:8080/api/login', loginReq)
+    const resp1 = await axios.post<R<LoginResp>>(`${process.env.API_URL}/api/login`, loginReq)
     // 登录成功
     if (resp1.data.code === 999) {
       console.log("fetch menu and routes");
       const resp2 = await axios.get<R<RouteAndMenu>>(
-        `http://192.168.80.163:8080/api/menu/${loginReq.username}`
+        `${process.env.API_URL}/api/menu/${loginReq.username}`
       );
       console.log(resp2.data.data);
       runInAction(() => {
@@ -73,7 +73,7 @@ class RoutesStore {
   async fetch(username: string) {
     console.log("fetch");
     const resp = await axios.get<R<RouteAndMenu>>(
-      `http://192.168.80.163:8080/api/menu/${username}`
+      `${process.env.API_URL}/api/menu/${username}`
     );
     console.log(resp.data.data);
     runInAction(() => {

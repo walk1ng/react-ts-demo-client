@@ -15,7 +15,7 @@ class StudentStore {
 
   // @action async fetch(id:number) {
   async fetch(id:number) {
-    const resp = await axios.get<R<Student>>(`http://192.168.80.163:8080/api/students/${id}`)
+    const resp = await axios.get<R<Student>>(`${process.env.API_URL}/api/students/${id}`)
     // this.setName(resp.data.data.name)
     runInAction(()=>{
       this.student = resp.data.data

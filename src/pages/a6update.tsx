@@ -28,7 +28,7 @@ export default function A6Update({
             const values = await form.validateFields();
             console.log(values);
             const resp = await axios.put<R<string>>(
-                `http://192.168.80.163:8080/api/student/${values.id}`,
+                `${process.env.API_URL}/api/student/${values.id}`,
                 values
             );
             message.success(resp.data.data);

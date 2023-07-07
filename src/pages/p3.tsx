@@ -9,7 +9,7 @@ export default function P4({ id }: { id: number }) {
 
     async function updateStudent() {
 
-        const resp = await axios.get<R<Student>>(`http://192.168.80.163:8080/api/students/${id}`)
+        const resp = await axios.get<R<Student>>(`${process.env.API_URL}/api/students/${id}`)
         console.log(resp.data.data)
     }
 

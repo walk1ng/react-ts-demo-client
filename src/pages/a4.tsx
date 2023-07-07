@@ -17,7 +17,7 @@ export default function A4() {
 
     useEffect(() => {
         async function getStudents() {
-            const resp = await axios.get<R<PageR<Student[]>>>(`http://192.168.80.163:8080/api/students/q`, {
+            const resp = await axios.get<R<PageR<Student[]>>>(`${process.env.API_URL}/api/students/q`, {
                 params: {
                     page: pagination.current,
                     size: pagination.pageSize

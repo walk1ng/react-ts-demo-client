@@ -26,7 +26,7 @@ export default function P8() {
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
         console.log('js', student)
         console.log('string',Qs.stringify(student))
-        const resp = await axios.post<R<Student>>(`http://192.168.80.163:8080/api/students`, Qs.stringify(student))
+        const resp = await axios.post<R<Student>>(`${process.env.API_URL}/api/students`, Qs.stringify(student))
         console.log(resp.data.data)
         setMessage(resp.data.message ? resp.data.message : '')
 

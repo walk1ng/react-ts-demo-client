@@ -53,7 +53,7 @@ export default function PodList() {
   async function getPods() {
     console.log('getting pods')
     const resp = await axios.get<R<Pod[]>>(
-      `http://192.168.80.163:8080/api/pods?namespace=${currentNs}`,
+      `${process.env.API_URL}/api/pods?namespace=${currentNs}`,
     )
     setPods(resp.data.data)
     setLoading(false)
@@ -63,7 +63,7 @@ export default function PodList() {
   async function getNs() {
     console.log('getting nss')
     const resp = await axios.get<R<Namespace[]>>(
-      `http://192.168.80.163:8080/api/namespaces`,
+      `${process.env.API_URL}/api/namespaces`,
     )
     setNamespaces(resp.data.data)
   }
